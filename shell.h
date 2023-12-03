@@ -4,8 +4,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
-#include <unstd.h>
+#include <unistd.h>
 
+void disprompt(void);
 void printer(const char *msg);
 
 #endif
