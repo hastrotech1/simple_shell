@@ -8,9 +8,9 @@
 int main(void)
 {
 	char usercmd[100];
-	int x;
 
-	for (x = 0; x > -1; x++)
+	while(true)
 	{
 		disprompt();
 	}
+}
