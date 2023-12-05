@@ -7,5 +7,5 @@
  */
 void disprompt(void)
 {
-	printer("Kind_Hastro$");
+	printer("Kind_Hastro$ \n");
 }

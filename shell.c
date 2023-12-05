@@ -3,14 +3,20 @@
 /**
  * main - entry point for the simple shell program
  *
- * Retur: 0 on sucess.
+ * Return: 0 on sucess.
  */
 int main(void)
 {
-	char usercmd[100];
+	size_t bufsize = 10;
+	char *input_buf = NULL;
 
-	while(true)
+	while (true)
 	{
 		disprompt();
+		if (getline(&input_buf, &bufsize, stdin) == -1)
+		{
+			break;
+		}
 	}
+	return (0);
 }

@@ -1,0 +1,12 @@
+#include "shell.h"
+
+int main()
+{
+	size_t n = 10;
+	char *buf = NULL;
+
+	printf("Enter text: ");
+	getline(&buf, &n, stdin);
+
+	printf("\n%sBuffer size is %ld\n", buf, n);
+}
