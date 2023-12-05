@@ -18,5 +18,6 @@ int main(void)
 			break;
 		}
 	}
+	free(input_buf);
 	return (0);
 }
