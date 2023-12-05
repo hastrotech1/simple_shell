@@ -11,9 +11,9 @@
 
 char **tok_input(char *_str)
 {
-	char *tok = strtok(_str, dli);
-	char *token = NULL;
-	char *deli = "\n\t";
+	const char *deli = "\n\t";
+	char *tok = strtok(_str, deli);
+	char **token = NULL;
 	size_t tok_count = 0;
 
 	while (tok != NULL)
@@ -39,6 +39,5 @@ char **tok_input(char *_str)
 		exit(EXIT_FAILURE);
 	}
 	token[tok_count] = NULL;
-	free(token);
 	return (token);
 }
