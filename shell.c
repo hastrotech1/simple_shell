@@ -17,6 +17,10 @@ int main(void)
 		{
 			break;
 		}
+		else
+		{
+			printf("%s", input_buf);
+		}
 	}
 	free(input_buf);
 	return (0);
