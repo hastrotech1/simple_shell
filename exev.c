@@ -32,8 +32,7 @@ char *tok(const char *input_buf)
 			token = strtok(NULL, *det);
 			x++;
 		}
-	}
-	return token;
+		return token;
 }
 
 /**
