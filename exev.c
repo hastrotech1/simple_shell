@@ -46,10 +46,12 @@ char *tok(const char *input_buf)
 int main()
 {
 	char input_buf[100];
+	char *token;
 
 	printf("Enter a sentence: ");
 	scanf("%99[^\n]", input_buf);
 
-	char *token = tok(input_buf);
+	token = tok(input_buf);
+
 	return 0;
 }
