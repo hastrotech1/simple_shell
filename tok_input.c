@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * tok_input - This function tokinnize the command to separete the
+ * tok_input - This function tokinize the command to separete the
  * command and its arguments using the strtok function.
  *
  * @_str: The input string to be tokinized.
