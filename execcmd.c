@@ -6,7 +6,7 @@
  *
  * Return: 0 on success.
  */
-int execcmd(char* token)
+int execcmd(char **token)
 {
 	const char *ref_card[] = {"ls", "echo", "cp", "exit", NULL};
 	int x;
@@ -23,7 +23,7 @@ int execcmd(char* token)
 				perror("unable to fork child");
 				exit(EXIT_FAILURE);
 			}
-			else
+			if (child == 0)
 			{
 				int failchk = execve(token[0], token, NULL);
 				if (failchk == -1)
@@ -34,3 +34,9 @@ int execcmd(char* token)
 			}
 			else
 			{
+				wait(NULL);
+			}
+		}
+	}
+	return (0);
+}
