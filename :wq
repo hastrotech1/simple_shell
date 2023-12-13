@@ -51,7 +51,6 @@ int execcmd(char **token)
  * Return: 0 on success.
  */
 
-void printer(const char *msg);
 int execcmd(char **token)
 {
 	int x;
@@ -77,15 +76,16 @@ int execcmd(char **token)
 				perror("Unable to fork child");
 				_exit(EXIT_FAILURE);
 			}
-
+			
 			if (child == 0)
 			{
+				char *arg[] = {*token, NULL};
 				char *path = "/bin/";
 				char exe_cutable[256];
-				char *argv[] = {*token, NULL};
-				int failchk = execve(exe_cutable, argv, NULL);
 
-				snprintf(exe_cutable, sizeof(exe_cutable), path, *token);
+				snprintf(exe_cutable, sizeof(exe_cutable), "%%s", path, *token);
+
+				int failchk = execve(exe_cutable, argv, NULL);
 				
 				if (failchk == -1)
 				{

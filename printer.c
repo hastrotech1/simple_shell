@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * printer - prints to the stdoutput
  * @msg: pointer tto a constant character
@@ -9,4 +10,5 @@
 void printer(const char *msg)
 {
 	write(STDOUT_FILENO, msg, strlen(msg));
+	write(STDOUT_FILENO, "\n", 1);
 }

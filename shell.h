@@ -10,16 +10,14 @@
 #include <stdbool.h>
 #include <unistd.h>
 #include <sys/wait.h>
-#include <sys/prctl.h>
-#include <signal.h>
 #include <sys/syscall.h>
-#include <err.h>
 
 /**
  * Function prototypes
  */
-
+char *tok(const char *input_buf);
 void disprompt(void);
 void printer(const char *msg);
+int execcmd(char **token);
 
 #endif

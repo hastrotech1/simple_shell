@@ -7,5 +7,6 @@
  */
 void disprompt(void)
 {
-	printer("Kind_Hastro$ ");
+	char prompt[] = "kind_Hastro$";
+	write(STDOUT_FILENO, prompt, sizeof(prompt) -1);
 }
