@@ -1,5 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-#include "shell.h"
 /**
 
  * tok - This function tokinizes the command to separete the
@@ -8,83 +10,29 @@
  * @input_buf: The string to be tokinized when inputed
  *
  * Return: returns token as output when successfully tokenized
+ */
  
 
-char *tok(const *input_buf)
+char *tok(const char *input_buf)
 {
 	int x = 0;
-	char *token;
+	char *token[];
 	
-	 * Delimeters include space, newline, and tab
-	 
-	const char *det[] = {" ", "\n", "\t"};
+	char *det  = " ";
 	
 	if (input_buf == NULL)
 	{
-		printf("No valid command\n");
+		perror("No valid command");
 		return NULL;
 	}
 	else
 	{
-		token = strtok((char *)input_buf, *det);
+		token[0] = strtok((char *)input_buf, *det);
 		while (token != NULL)
 		{
-			printf("%s\n", token);
 			token = strtok(NULL, *det);
 			x++;
 		}
 	}
-	return token;
+	return (token);
 }
-*/
-
-/**
- * main - The main function to combine all the custom and
- * helper functions together.
- *
- * Return: Gives 0 as output when successful
- */
-/**
-int main()
-{
-	char input_buf[100];
-	char *token;
-
-	printer("Enter a sentence: ");
-	scanf("%99[^\n]", input_buf);
-
-	token = tok(input_buf);
-
-	return 0;
-}
-*/
-
-int main()
-{
-    size_t bufsize = 10;
-    char *input_buf = NULL;
-
-    while (1)
-    {
-        disprompt();
-        if (getline(&input_buf, &bufsize, stdin) == -1)
-        {
-            break;
-        }
-        else
-        {
-            char *token = tok(input_buf);
-            if (token != NULL)
-            {
-                execcmd(&token);
-                free(token);
-            }
-
-            printf("%s", input_buf);
-        }
-    }
-
-    free(input_buf);
-    return 0;
-}
-
