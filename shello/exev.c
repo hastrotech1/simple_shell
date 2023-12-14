@@ -73,7 +73,7 @@ int main()
         }
         else
         {
-            char *token = tok(input_buf);
+            char *token = cstm_strtok(input_buf);
             if (token != NULL)
             {
                 execcmd(&token);
