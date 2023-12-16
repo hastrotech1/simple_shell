@@ -11,9 +11,9 @@ void call_and_execute(char *args[]);
 
 void call_and_execute(char *args[])
 {
-	pid_t pid_fork_val;
+	pid_t status;
 
-	int wt_status_sig;
+	pid_t pid_fork_val;
 
 	pid_fork_val = fork();
 
@@ -60,13 +60,9 @@ void call_and_execute(char *args[])
 			perror("nO compatible search");
 			exit(EXIT_FAILURE);
 		}
-
 	}
 	else
 	{
-		do {
-
-			waitpid(pid_fork_val, &wt_status_sig, WUNTRACED);
-		} while (!WIFEXITED(wt_status_sig) && !WIFSIGNALED(wt_status_sig));
-	}
+		wait(&status);
+	}	
 }
